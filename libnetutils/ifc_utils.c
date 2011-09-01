@@ -424,7 +424,8 @@ ifc_configure(const char *ifname,
     if (ifc_create_default_route(ifname, gateway)) {
         printerr("failed to set default route %s: %s\n", ipaddr_to_string(gateway), strerror(errno));
         ifc_close();
-        return -1;
+	// dx: skip error
+        //return -1;
     }
 
     ifc_close();
